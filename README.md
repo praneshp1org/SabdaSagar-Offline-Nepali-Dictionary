@@ -1,11 +1,5 @@
-# ADKosh
+# SabdaKosh
 A Nepali Dictionary (एउटा नेपाली शब्दकोश)
-
-## Release Notes
-### Version 3.0.0
-
-| :exclamation:  This is very important: The Application Id of the app has been changed. What this means is if you had an older version of the app installed already, you will find that a new app with the same name has been installed. You can uninstall the older one safely. If this version is the first time installing your app, there is no need to do anything.   |
-|-----------------------------------------|
 
 
 * Features
