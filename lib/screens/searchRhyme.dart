@@ -87,21 +87,26 @@ class _SearchRhymeState extends State<SearchRhyme> {
                 child: ListView.separated(
                   itemCount: items.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      child: ListTile(
-                        title: Text(
-                          items[index].word,
-                          style: TextStyle(fontSize: 20),
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Card(
+                        elevation: 1,
+                        child: ListTile(
+                          trailing: Icon(Icons.arrow_circle_right_outlined),
+                          title: Text(
+                            items[index].word,
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Meaning(
+                                      id: items[index].id,
+                                      word: items[index].word),
+                                ));
+                          },
                         ),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Meaning(
-                                    id: items[index].id,
-                                    word: items[index].word),
-                              ));
-                        },
                       ),
                     );
                   },

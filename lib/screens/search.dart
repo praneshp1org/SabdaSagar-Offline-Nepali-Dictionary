@@ -64,13 +64,40 @@ class _SearchState extends State<Search> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
+          // child: Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(10.0),
+          //     color: Colors.white,
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.5),
+          //         spreadRadius: 2,
+          //         blurRadius: 5,
+          //         offset: Offset(0, 3),
+          //       ),
+          //     ],
+          //   ),
+          //   child: TextField(
+          //     decoration: InputDecoration(
+          //       contentPadding: EdgeInsets.all(16.0),
+          //       border: InputBorder.none,
+          //       hintText: 'यहाँ शब्दको अर्थ खोज्नुहोस्...',
+          //       suffixIcon: Icon(
+          //         Icons.search,
+          //         color: Colors.grey,
+          //       ),
+          //     ),
+          //     style: TextStyle(fontSize: 18, color: Colors.black),
+          //     controller: searchController,
+          //   ),
+          // ),
+
           child: TextField(
             decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 hintText: 'यहाँ शब्दको अर्थ खोज्नुहोस्...',
-                suffixIcon: Icon(
-                  Icons.search,
-                )),
+                suffixIcon: Icon(Icons.search)),
             style: TextStyle(fontSize: 20),
             controller: searchController,
           ),
@@ -80,24 +107,28 @@ class _SearchState extends State<Search> {
                 child: ListView.separated(
                   itemCount: items.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      elevation: 4,
-                      child: ListTile(
-                        trailing: Icon(Icons.arrow_circle_right_outlined),
-                        // tileColor: index.isEven || index == 0 ? Colors.grey[300] : Colors.white,
-                        title: Text(
-                          items[index].word,
-                          style: TextStyle(fontSize: 20),
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Card(
+                        elevation: 1,
+                        // color: Color(0xFF808080),
+                        child: ListTile(
+                          trailing: Icon(Icons.arrow_circle_right_outlined),
+                          // tileColor: index.isEven || index == 0 ? Colors.grey[300] : Colors.white,
+                          title: Text(
+                            items[index].word,
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Meaning(
+                                      id: items[index].id,
+                                      word: items[index].word),
+                                ));
+                          },
                         ),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Meaning(
-                                    id: items[index].id,
-                                    word: items[index].word),
-                              ));
-                        },
                       ),
                     );
                   },
