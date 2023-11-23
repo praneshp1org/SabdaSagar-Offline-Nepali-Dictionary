@@ -27,6 +27,7 @@ class _DashboardState extends State<Dashboard> {
     Favourites(),
     IndexScreen(),
     AboutScreen(),
+    Favourites(),
   ];
 
   void _onItemTapped(int index) {
@@ -80,6 +81,10 @@ class _DashboardState extends State<Dashboard> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shuffle),
             label: 'र्‍याण्डम',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_outline),
+            label: 'फेभरेट',
           ),
         ],
         currentIndex: _selectedIndex < 0 ? 0 : _selectedIndex,
