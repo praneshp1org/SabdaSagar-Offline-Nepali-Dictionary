@@ -2,11 +2,15 @@ import 'package:adkosh/screens/dashboard.dart';
 import 'package:adkosh/theme/themeConstants.dart';
 import 'package:adkosh/theme/themeManager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
+  // runApp(const MyApp());
 }
 
 ThemeManager themeManager = ThemeManager();

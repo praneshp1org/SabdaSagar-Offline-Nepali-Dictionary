@@ -92,7 +92,14 @@ class _SearchRhymeState extends State<SearchRhyme> {
                       child: Card(
                         elevation: 1,
                         child: ListTile(
-                          trailing: Icon(Icons.arrow_circle_right_outlined),
+                          // trailing: Icon(Icons.arrow_circle_right_outlined),
+                          trailing: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.arrow_circle_right_outlined),
+                              Text('अर्थ')
+                            ],
+                          ),
                           title: Text(
                             items[index].word,
                             style: TextStyle(fontSize: 20),

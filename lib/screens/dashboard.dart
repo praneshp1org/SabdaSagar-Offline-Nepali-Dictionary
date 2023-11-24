@@ -28,6 +28,7 @@ class _DashboardState extends State<Dashboard> {
     IndexScreen(),
     AboutScreen(),
     Favourites(),
+    IndexScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,17 +42,24 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      drawer: ADDrawer(
-          selectedItem: _drawerIndex,
-          onTapCallback: (val) {
-            setState(() {
-              _drawerIndex = val;
-              _selectedIndex = -1;
-            });
-          }),
+      // drawer: ADDrawer(
+      //     selectedItem: _drawerIndex,
+      //     onTapCallback: (val) {
+      //       setState(() {
+      //         _drawerIndex = val;
+      //         _selectedIndex = -1;
+      //       });
+      //     }),
       appBar: AppBar(
-        title: const Text('Sabdaकोश'),
+        title: const Text('शब्द सागर'),
+        elevation: 0,
         actions: [
+          Switch(
+            value: widget.tManager.themeMode == ThemeMode.dark,
+            onChanged: (value) {
+              widget.tManager.toggleTheme(value);
+            },
+          ),
           IconButton(
               onPressed: () {
                 widget.tManager.toggleTheme(
@@ -69,6 +77,9 @@ class _DashboardState extends State<Dashboard> {
             .elementAt(_drawerIndex > 0 ? _drawerIndex : _selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        // elevation: 1,
+        // showSelectedLabels: true
+        // ,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
@@ -86,8 +97,13 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.favorite_outline),
             label: 'फेभरेट',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_rounded),
+            label: 'सङ्केतसूची',
+          ),
         ],
         currentIndex: _selectedIndex < 0 ? 0 : _selectedIndex,
+
         selectedItemColor: _selectedIndex < 0
             ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
             : Colors.amber[800],

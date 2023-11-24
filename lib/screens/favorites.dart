@@ -47,13 +47,23 @@ class _FavouritesState extends State<Favourites> {
   Widget build(BuildContext context) {
     return Material(
       child: Column(
-          children: [
-            items.length > 0
-                ? Expanded(
-                    child: ListView.separated(
-                      itemCount: items.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
+        children: [
+          items.length > 0
+              ? Expanded(
+                  child: ListView.separated(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 1,
+                        child: ListTile(
+                          leading: Icon(Icons.favorite_sharp),
+                          trailing: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.arrow_circle_right_outlined),
+                              Text('अर्थ')
+                            ],
+                          ),
                           title: Text(
                             items[index].word,
                             style: TextStyle(fontSize: 20),
@@ -67,24 +77,25 @@ class _FavouritesState extends State<Favourites> {
                                           id: items[index].id,
                                           word: items[index].word,
                                         )));
-    
+
                             if (unfavourited_word != 0) {
                               removeWord(unfavourited_word);
                             }
                           },
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return Divider(
-                          indent: 8,
-                          endIndent: 8,
-                        );
-                      },
-                    ),
-                  )
-                : NoResults()
-          ],
-        ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return Divider(
+                        indent: 8,
+                        endIndent: 8,
+                      );
+                    },
+                  ),
+                )
+              : NoResults()
+        ],
+      ),
     );
   }
 }

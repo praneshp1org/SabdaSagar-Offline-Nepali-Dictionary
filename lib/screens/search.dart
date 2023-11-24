@@ -110,15 +110,25 @@ class _SearchState extends State<Search> {
                     return Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Card(
+                        shadowColor: Colors.black,
                         elevation: 1,
                         // color: Color(0xFF808080),
                         child: ListTile(
-                          trailing: Icon(Icons.arrow_circle_right_outlined),
+                          // leading: Icon(Icons.favorite),
+                          // trailing: Icon(Icons.arrow_circle_right_outlined),
+                          trailing: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.arrow_circle_right_outlined),
+                              Text('अर्थ')
+                            ],
+                          ),
                           // tileColor: index.isEven || index == 0 ? Colors.grey[300] : Colors.white,
                           title: Text(
                             items[index].word,
                             style: TextStyle(fontSize: 20),
                           ),
+                          // subtitle: ,
                           onTap: () {
                             Navigator.push(
                                 context,
