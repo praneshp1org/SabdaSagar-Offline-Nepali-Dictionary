@@ -4,7 +4,8 @@ class ADDrawer extends StatefulWidget {
   final Function onTapCallback;
   final int selectedItem;
 
-  const ADDrawer({super.key, required this.selectedItem, required this.onTapCallback});
+  const ADDrawer(
+      {super.key, required this.selectedItem, required this.onTapCallback});
 
   @override
   State<ADDrawer> createState() => _ADDrawerState();
@@ -27,7 +28,7 @@ class _ADDrawerState extends State<ADDrawer> {
           child: Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                'अझ धेरै विकल्पहरु!!',
+                'शब्द सागर: तपाईंको नेपाली भाषा अनुसन्धान गर्ने साहित्यिक साथी',
                 style: TextStyle(fontSize: 20),
               )),
         ),
@@ -66,7 +67,7 @@ class _ADDrawerState extends State<ADDrawer> {
         ListTile(
           leading: Icon(Icons.info),
           title: Text(
-            'आ्याप बारे',
+            'App बारे',
             style: TextStyle(fontSize: 20),
           ),
           selected: currentSelection == 5,

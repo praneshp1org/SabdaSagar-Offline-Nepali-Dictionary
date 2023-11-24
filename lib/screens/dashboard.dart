@@ -42,14 +42,14 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // drawer: ADDrawer(
-      //     selectedItem: _drawerIndex,
-      //     onTapCallback: (val) {
-      //       setState(() {
-      //         _drawerIndex = val;
-      //         _selectedIndex = -1;
-      //       });
-      //     }),
+      drawer: ADDrawer(
+          selectedItem: _drawerIndex,
+          onTapCallback: (val) {
+            setState(() {
+              _drawerIndex = val;
+              _selectedIndex = -1;
+            });
+          }),
       appBar: AppBar(
         title: const Text('शब्द सागर'),
         elevation: 0,
@@ -91,7 +91,7 @@ class _DashboardState extends State<Dashboard> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shuffle),
-            label: 'र्‍याण्डम',
+            label: 'विविध',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_outline),
