@@ -57,9 +57,20 @@ class AboutScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'शब्द सागर',
-              style: Theme.of(context).textTheme.displayMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.arrow_back_ios)),
+                // Icon(Icons.arrow_back_ios),
+                Text(
+                  'शब्द सागर',
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+              ],
             ),
             Divider(),
             Text(
@@ -132,27 +143,29 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: Column(
-          children: [
-            Expanded(child: scrollableBody(context)),
-            Column(
-              children: [
-                Text('Version: 1.0.0'),
-                Text('Pranesh Tech Apps'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [githubButton(), homeButton()],
-                )
-              ],
-            )
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [githubButton(), homeButton()],
-            // )
-          ],
+    return SafeArea(
+      child: Material(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            children: [
+              Expanded(child: scrollableBody(context)),
+              Column(
+                children: [
+                  Text('Version: 1.0.0'),
+                  Text('Pranesh Tech Apps'),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [githubButton(), homeButton()],
+                  // )
+                ],
+              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [githubButton(), homeButton()],
+              // )
+            ],
+          ),
         ),
       ),
     );

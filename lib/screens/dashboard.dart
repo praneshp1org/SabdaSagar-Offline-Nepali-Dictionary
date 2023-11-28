@@ -42,34 +42,70 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      drawer: ADDrawer(
-          selectedItem: _drawerIndex,
-          onTapCallback: (val) {
-            setState(() {
-              _drawerIndex = val;
-              _selectedIndex = -1;
-            });
-          }),
+      // drawer: ADDrawer(
+      //     selectedItem: _drawerIndex,
+      //     onTapCallback: (val) {
+      //       setState(() {
+      //         _drawerIndex = val;
+      //         _selectedIndex = -1;
+      //       });
+      //     }),
       appBar: AppBar(
         title: const Text('शब्द सागर'),
         elevation: 0,
         actions: [
-          Switch(
-            value: widget.tManager.themeMode == ThemeMode.dark,
-            onChanged: (value) {
-              widget.tManager.toggleTheme(value);
-            },
-          ),
-          IconButton(
-              onPressed: () {
-                widget.tManager.toggleTheme(
-                    widget.tManager.themeMode == ThemeMode.dark ? false : true);
-              },
-              icon: Icon(
-                widget.tManager.themeMode == ThemeMode.dark
-                    ? Icons.light_mode
-                    : Icons.dark_mode,
-              ))
+          // Row(
+          //   children: [
+          //     Text(
+          //       widget.tManager.themeMode == ThemeMode.dark
+          //           ? 'Dark Mode'
+          //           : 'Light Mode',
+          //       style: TextStyle(fontSize: 16),
+          //     ),
+          //     Switch(
+          //       value: widget.tManager.themeMode == ThemeMode.dark,
+          //       onChanged: (value) {
+          //         widget.tManager.toggleTheme(value);
+          //       },
+          //     ),
+          //   ],
+          // )
+
+          // Row(
+          //   children: [
+          //     IconButton(onPressed: () {}, icon: Icon(Icons.info)),
+          //     Switch(
+          //       value: widget.tManager.themeMode == ThemeMode.dark,
+          //       onChanged: (value) {
+          //         widget.tManager.toggleTheme(value);
+          //       },
+          //     ),
+          //   ],
+          // ),
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () {
+                    widget.tManager.toggleTheme(
+                        widget.tManager.themeMode == ThemeMode.dark
+                            ? false
+                            : true);
+                  },
+                  icon: Icon(
+                    widget.tManager.themeMode == ThemeMode.dark
+                        ? Icons.light_mode
+                        : Icons.dark_mode,
+                  )),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutScreen()),
+                    );
+                  },
+                  icon: Icon(Icons.info_outline))
+            ],
+          )
         ],
       ),
       body: Center(
