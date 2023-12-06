@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SabdaKosh',
+      title: 'SabdaSagar',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeManager.themeMode,

@@ -1,4 +1,4 @@
-package np.com.anupamdahal.adkosh
+package com.praneshtechapps.sabdasagar
 
 import io.flutter.embedding.android.FlutterActivity
 
