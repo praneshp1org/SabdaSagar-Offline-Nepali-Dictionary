@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -14,8 +15,8 @@ class AboutScreen extends StatelessWidget {
             HapticFeedback.mediumImpact();
             var url = Uri(
               scheme: 'https',
-              host: 'github.com',
-              path: '/miracleanupam/ADKosh',
+              host: 'praneshpyarashrestha.com.np',
+              // path: '/miracleanupam/ADKosh',
             );
             await launchUrl(
               url,
@@ -23,9 +24,35 @@ class AboutScreen extends StatelessWidget {
             );
           },
           child: FaIcon(
-            FontAwesomeIcons.github,
+            FontAwesomeIcons.dev,
             size: 25,
           )),
+    );
+  }
+
+  Widget RateUsButton() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+      child: ElevatedButton(
+          onPressed: () async {
+            LaunchReview.launch(androidAppId: "com.praneshtechapps.sabdasagar");
+            // HapticFeedback.mediumImpact();
+            // var url = Uri(
+            //   scheme: 'https',
+            //   host: 'praneshpyarashrestha.com.np',
+            //   // path: '/miracleanupam/ADKosh',
+            // );
+            // await launchUrl(
+            //   url,
+            //   mode: LaunchMode.externalApplication,
+            // );
+          },
+          child: Icon(
+              // FontAwesomeIcons.revi,
+              Icons.reviews
+              // size: 25,
+
+              )),
     );
   }
 
@@ -36,16 +63,16 @@ class AboutScreen extends StatelessWidget {
           onPressed: () async {
             HapticFeedback.mediumImpact();
             var url = Uri(
-              scheme: 'https',
-              host: 'www.anupamdahal.com.np',
-            );
+                scheme: 'https',
+                host: 'praneshtechapps1.blogspot.com',
+                path: '/2023/11/privacy-policy-sabda-sagar.html');
             await launchUrl(
               url,
               mode: LaunchMode.externalApplication,
             );
           },
           child: FaIcon(
-            FontAwesomeIcons.house,
+            FontAwesomeIcons.question,
             size: 25,
           )),
     );
@@ -152,12 +179,12 @@ class AboutScreen extends StatelessWidget {
               Expanded(child: scrollableBody(context)),
               Column(
                 children: [
-                  Text('Version: 1.0.0'),
+                  Text('Version: 1.0.2'),
                   Text('Pranesh Tech Apps'),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [githubButton(), homeButton()],
-                  // )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [RateUsButton(), homeButton(), githubButton()],
+                  )
                 ],
               )
               // Row(
