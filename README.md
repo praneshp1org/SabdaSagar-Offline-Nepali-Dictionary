@@ -1,4 +1,4 @@
-# SabdaKosh
+# SabdaSagar: Offline Nepali Dictionary
 A Nepali Dictionary (एउटा नेपाली शब्दकोश)
 
 
